@@ -1,0 +1,37 @@
+[project]
+name = "repo-map"
+version = "0.1.0"
+description = "A small repository index for Python: symbols, imports, calls, and queries"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "networkx>=3.4",
+    "tree-sitter==0.25.2",
+    "tree-sitter-python==0.25.0",
+]
+
+[project.scripts]
+repo-map = "repo_map.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff==0.16.9",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["ASSIGNMENT.md"]  # the assignment text is not your code
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not fastapi'"
+markers = ["fastapi: public smoke tests on the pinned FastAPI checkout"]
