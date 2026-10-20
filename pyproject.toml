@@ -26,7 +26,7 @@ build-backend = "hatchling.build"
 [tool.ruff]
 line-length = 100
 target-version = "py312"
-extend-exclude = ["ASSIGNMENT.md"]  # the assignment text is not your code
+extend-exclude = ["ASSIGNMENT.md", "tests/fixtures"]  # the assignment text and fixtures are not our code
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]

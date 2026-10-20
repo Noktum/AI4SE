@@ -28,6 +28,7 @@ class Import:
     file: str
     line: int
     scope: str  # qualified name of the enclosing module, class or function
+    has_alias: bool = False  # `import pkg.mod as alias` or plain `import pkg.mod`
 
 
 @dataclass(frozen=True)
